@@ -10,6 +10,13 @@ const val LEVEL_TWO = 2
 // val publican = "publican"
 // val drinks : List = "wine", "mead", "LaCroix"
 
+fun obtainQuest(level: Int) : String = when(level) {
+    1 -> "Meet Mr. Bubbles in the land of soft things"
+    in 2..6 -> "Save the town"
+    7 -> "Locate the enchanted sword"
+    else -> "No quests right now"
+}
+
 class Learn {
     private val hasSteed = false
     // private val race = "gnome"
@@ -34,18 +41,6 @@ class Learn {
         return name().reversed()
     }
 
-    fun quest(level: Int) : String {
-        if (level == 1) {
-            return "Meet Mr. Bubbles in the land of soft things"
-        } else if (level in 2..6) {
-            return "Save the town"
-        } else if (level == 7) {
-            return "Locate the enchanted sword"
-        } else {
-            return "No quests right now"
-        }
-    }
-
     fun faction(race: String): String = when(race) {
         "dwarf" -> "Keeper of the Mines"
         "gnome" -> "Tinkerers of the Underground"
@@ -55,7 +50,7 @@ class Learn {
 
     fun title(level: Int): String = when(level) {
         1 -> "Apprentice"
-        in 2..8 -> "Level " + level + " Warrior"
+        in 2..8 -> "Level $level Warrior"
         9 -> "Vanquisher of Nogrtse"
         else -> "Distingused Knight"
     }

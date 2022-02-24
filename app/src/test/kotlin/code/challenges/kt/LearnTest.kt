@@ -6,12 +6,12 @@ import kotlin.test.*
 class LearnTest {
     @Test fun appHasAGreeting() {
         val learn = Learn()
-        assertEquals(3, learn.playerLevel())
+        assertEquals(1, learn.playerLevel())
     }
 
     @Test fun levelUp() {
         val learn = Learn()
-        assertEquals(4, learn.levelUp())
+        assertEquals(2, learn.levelUp())
     }
 
     @Test fun name() {
@@ -27,13 +27,14 @@ class LearnTest {
     }
 
     @Test fun questsReturnText() {
-        assertEquals("Locate the enchanted sword", Learn().quest(7))
+        assertEquals("Locate the enchanted sword", obtainQuest(7))
     }
 
     @Suppress("SENSELESS_COMPARISON")
     @Test fun logicalOperators() {
-        val lt = 5 < 6
-        val gt = 6 > 5
+        val five = 4 + 1
+        val lt = five < 6
+        val gt = 6 > five
         val logicalAnd = lt && gt
         assertTrue { lt }
         assertTrue { gt }
