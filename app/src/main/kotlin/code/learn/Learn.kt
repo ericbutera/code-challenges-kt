@@ -1,6 +1,6 @@
 // kotlin second edition
 // big nerd ranch
-package code.challenges.kt
+package code.learn
 
 const val HERO_NAME = "Madrigal"
 const val LEVEL_TWO = 2

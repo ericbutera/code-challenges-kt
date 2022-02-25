@@ -1,4 +1,4 @@
-package code.challenges.kt
+package code.learn
 
 import java.lang.IllegalArgumentException
 import kotlin.test.Test
