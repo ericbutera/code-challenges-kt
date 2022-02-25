@@ -10,10 +10,11 @@ const val LEVEL_TWO = 2
 // val publican = "publican"
 // val drinks : List = "wine", "mead", "LaCroix"
 
-fun obtainQuest(level: Int) : String = when(level) {
+fun obtainQuest(level: Int) : String? = when(level) {
     1 -> "Meet Mr. Bubbles in the land of soft things"
     in 2..6 -> "Save the town"
     7 -> "Locate the enchanted sword"
+    8 -> null
     else -> "No quests right now"
 }
 
@@ -48,14 +49,21 @@ class Learn {
         else -> "Shadow Cabal of the Unseen Realm"
     }
 
-    fun title(level: Int): String = when(level) {
-        1 -> "Apprentice"
-        in 2..8 -> "Level $level Warrior"
-        9 -> "Vanquisher of Nogrtse"
-        else -> "Distingused Knight"
+    fun title(level: Int): String {
+        require(level > 0) {
+            "Player's level must be at least 1"
+        }
+        return when(level) {
+            1 -> "Apprentice"
+            in 2..8 -> "Level $level Warrior"
+            9 -> "Vanquisher of Nogrtse"
+            else -> "Distinguished Knight"
+        }
     }
 
-    fun levelStatus(xp: Int): String = when {
+    fun nameAndTitle(): String = "${name()} the ${title(playerLevel())}"
+
+    fun levelStatus(xp: Int = 1): String = when {
         xp > LEVEL_TWO -> {
             "You already leveled up!"
         }
@@ -64,5 +72,14 @@ class Learn {
         }
         else -> "Not yet!"
     }
+}
 
+fun throwException(isThrow: Boolean = false): String {
+    try {
+        throw IllegalArgumentException("Argh")
+    } catch (e: Exception) {
+        if (isThrow)
+            throw e
+    }
+    return "Not today"
 }

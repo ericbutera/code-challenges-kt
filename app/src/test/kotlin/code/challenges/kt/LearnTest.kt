@@ -1,5 +1,6 @@
 package code.challenges.kt
 
+import java.lang.IllegalArgumentException
 import kotlin.test.Test
 import kotlin.test.*
 
@@ -63,7 +64,54 @@ class LearnTest {
         assertEquals("Level 3 Warrior", Learn().title(3))
     }
 
+    @Test fun titleWithPrecondition() {
+        /*
+        check
+        checkNotNull
+        require
+        requireNotNull
+        error
+        assert
+         */
+        assertFailsWith<IllegalArgumentException> { Learn().title(-5) }
+    }
+
     @Test fun levelStatusUsesExpressionsWithoutArgs() {
         assertEquals("Not yet!", Learn().levelStatus(1))
+        assertEquals("Not yet!", Learn().levelStatus())
     }
+
+    @Test fun nameAndTitle() {
+        assertEquals("Madrigal the Apprentice", Learn().nameAndTitle())
+    }
+
+    @Suppress("SENSELESS_COMPARISON")
+    @Test fun safeCall() {
+        assertEquals(null, null?.toInt())
+    }
+
+    @Test fun let() {
+        val message: String? = obtainQuest(7)?.replace("Nogartse", "xxxxxxxx")
+            ?.let { censoredQuest ->
+                """ 
+                |$HERO_NAME approaches the bounty board. It reads: 
+                | "$censoredQuest" 
+                | """.trimMargin()
+            }
+
+        // null coalesce ?:
+        assertTrue(message?.contains("approaches") ?: false)
+    }
+
+    @Test fun exceptionCatch() {
+        assertEquals("Not today", throwException())
+        assertFailsWith<IllegalArgumentException> { throwException(true) }
+    }
+
+    /*
+    Not sure how to write this yet:
+    @Test fun noReturnValue() {
+        assertIs<Unit>(noReturnValue())
+    }
+    */
 }
