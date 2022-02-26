@@ -157,9 +157,6 @@ class LearnTest {
         peeps -= listOf("Eli", "Sophie")
         assertEquals(listOf("Mordoc"), peeps)
 
-        assertEquals("EliMordocSophie", peeps.reduce { acc, it -> acc + it })
-        assertEquals(1, peeps.fold(0) { acc, it -> acc + it.length })
-
         val otherPeeps = mutableListOf("Eli", "Mordoc", "Sophie")
         otherPeeps.removeAll(listOf("Eli", "Mordoc"))
         assertEquals(listOf("Sophie"), otherPeeps)
@@ -204,7 +201,6 @@ class LearnTest {
         val evens = (1..10)
             .toList()
             .filter { it % 2 == 0 }
-        println(evens)
         assertEquals(listOf(2, 4, 6, 8, 10), evens)
     }
 
@@ -223,6 +219,10 @@ class LearnTest {
         // fold allows changing the type of the accumulator
         assertEquals("EliMordocSophie", peeps.reduce { acc, it -> acc + it })
         assertEquals(15, peeps.fold(0) { acc, it -> acc + it.length })
+
+        val peeps2 = listOf("Eli","Mordoc","Sophie")
+        assertEquals("EliMordocSophie", peeps2.reduce { acc, it -> acc + it })
+        assertEquals(15, peeps2.fold(0) { acc, it -> acc + it.length })
     }
 
     @Test fun mapper() {
