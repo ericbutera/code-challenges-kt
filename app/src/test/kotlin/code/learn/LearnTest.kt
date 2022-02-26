@@ -1,7 +1,8 @@
+@file:Suppress("SpellCheckingInspection")
+
 package code.learn
 
 import java.lang.IllegalArgumentException
-import kotlin.test.Test
 import kotlin.test.*
 
 class LearnTest {
@@ -116,10 +117,10 @@ class LearnTest {
     */
 
     @Test fun anony() {
-        assertEquals(4, "Mississippi".count({ letter -> letter == 's' }))
+        assertEquals(4, "Mississippi".count { letter -> letter == 's' } )
 
         // `it` is a convenience to represent single parameter lambdas
-        assertEquals(4, "Mississippi".count({ it == 's' }))
+        assertEquals(4, "Mississippi".count { it == 's' } )
 
         val loudNarration: (String, String) -> String = { message, tone ->
             when (tone) {
@@ -188,7 +189,7 @@ class LearnTest {
     @Test fun foreachIndexed() {
         val patrons = mutableListOf("Eli", "Mordoc", "Sophie")
         var text = ""
-        patrons.forEachIndexed({ index, patron -> text += "$index:$patron"})
+        patrons.forEachIndexed { index, patron -> text += "$index:$patron"}
         assertEquals("0:Eli1:Mordoc2:Sophie", text)
     }
 
@@ -197,7 +198,7 @@ class LearnTest {
         assertEquals(3, planets.count())
     }
 
-    @Test fun map() {
+    @Test fun filters() {
         val evens = (1..10)
             .toList()
             .filter { it % 2 == 0 }
@@ -215,7 +216,7 @@ class LearnTest {
 
     @Test fun reduceAndFold() {
         val peeps = mutableListOf("Eli","Mordoc","Sophie")
-        // notice the accumulator difference between reduce and fold
+        // notice the accumulator difference between reduce and fold.
         // fold allows changing the type of the accumulator
         assertEquals("EliMordocSophie", peeps.reduce { acc, it -> acc + it })
         assertEquals(15, peeps.fold(0) { acc, it -> acc + it.length })
@@ -251,6 +252,8 @@ class LearnTest {
         //     value to key
         //   }.toMap()
         // }
+        //
+        // note: map the method is not Map the type
         val flipper: (Map<String, Double>) -> Map<Double, String> = { items ->
             items.map { (name, grade) ->
                 grade to name
@@ -261,6 +264,32 @@ class LearnTest {
 
         assertEquals(mapOf(4.0 to "Josh", 2.0 to "Alex", 3.0 to "Jane"), flipped)
         assertEquals(flip, flipped)
+    }
+
+    @Test fun mapIsDictionary() {
+        // https://kotlinlang.org/docs/collections-overview.html#map
+        // https://kotlinlang.org/docs/map-operations.html#map-write-operations
+        val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
+        val three = numbersMap.filter { (key, _) -> key.endsWith("3") }
+        assertEquals(three, mapOf("key3" to 3))
+    }
+
+    @Suppress("ReplaceGetOrSet")
+    @Test fun mapManipulation() {
+        val numbersMap = mutableMapOf("one" to 1, "two" to 2, "three" to 3)
+        assertEquals(10, numbersMap.getOrDefault("four", 10))
+        assertEquals(1, numbersMap.get("one"))
+        assertEquals(null, numbersMap["fifty"])
+        // filterKeys, filterValues
+        // keys,
+        // values
+        numbersMap["four"] = 4
+        assertEquals(4, numbersMap["four"])
+        // putAll and
+        numbersMap += mapOf("five" to 5)
+        assertEquals(5, numbersMap["five"])
+        numbersMap.remove("five")
+        assertNull(numbersMap["five"])
     }
 }
 // val loudNarration: (String, String) -> String = { message, tone ->
