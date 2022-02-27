@@ -13,4 +13,12 @@ class MaxConsecutiveOnesTest {
     @Test fun countEvens() {
         assertEquals(4, findEvenCount(intArrayOf(12,345,2,6,7896)))
     }
+
+    @Test fun evenSized() {
+        assertEquals(2, findEvenSized(intArrayOf(12,345,2,6,7896)))
+    }
+
+    @Test fun squaresSortedArray() {
+        assertContentEquals(intArrayOf(0,1,9,16,100), sortedSquares(intArrayOf(-4,-1,0,3,10)))
+    }
 }

@@ -29,6 +29,21 @@ fun findEvenCount(nums: IntArray): Int {
     }
 }
 
+fun findEvenSized(nums: IntArray): Int {
+    return nums.fold(0) { acc, it ->
+        if (it.toString().length % 2 == 0)
+            acc + 1
+        else
+            acc
+    }
+}
+
+fun sortedSquares(nums: IntArray): IntArray {
+    nums.forEachIndexed { index, it -> nums[index] = it * it }
+    nums.sort()
+    return nums
+}
+
 /*
 1,1,0,1,1,1
 
