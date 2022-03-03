@@ -1,8 +1,10 @@
+@file:Suppress("SpellCheckingInspection")
+
 package code.leet
 
 fun twoSumQuadratic(nums: IntArray, target: Int): IntArray {
     for (x in (0..nums.size-2)) { // start of array until first before last
-        for (y in (x+1..nums.size-1)) { // begin at x + 1 until end
+        for (y in (x+1 until nums.size)) { // begin at x + 1 until end
             if (nums[x] + nums[y] == target) {
                 return intArrayOf(x,y)
             }

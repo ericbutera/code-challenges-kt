@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/equality-in-a-array/problem
-package code.challenges
+package code.hackerrank
 
 fun equalizeArray(arr: Array<Int>): Int {
     val counts = HashMap<Int, Int>()

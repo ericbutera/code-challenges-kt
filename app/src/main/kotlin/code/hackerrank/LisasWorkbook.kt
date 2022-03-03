@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/lisa-workbook/problem?h_r=next-challenge&h_v=zen
-package code.challenges
+package code.hackerrank
 
 fun workbook(n: Int, k: Int, arr: Array<Int>): Int {
     var page = 1

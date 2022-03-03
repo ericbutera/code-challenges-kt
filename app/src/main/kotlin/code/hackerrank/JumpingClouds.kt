@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem?isFullScreen=true
-package code.challenges
+package code.hackerrank
 
 const val MOVE_ENERGY = 1
 const val THUNDERHEAD_ENERGY = 1

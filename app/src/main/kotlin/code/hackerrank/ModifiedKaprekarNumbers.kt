@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/kaprekar-numbers/problem
-package code.challenges
+package code.hackerrank
 
 import kotlin.math.pow
 

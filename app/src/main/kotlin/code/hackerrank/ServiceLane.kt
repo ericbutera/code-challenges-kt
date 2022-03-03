@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/service-lane/problem?isFullScreen=true
-package code.challenges
+package code.hackerrank
 
 fun serviceLane(widths: Array<Int>, n: Int, cases: Array<Array<Int>>): Array<Int> {
     // note: n = cases.size

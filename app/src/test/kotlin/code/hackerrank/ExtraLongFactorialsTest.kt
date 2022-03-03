@@ -1,7 +1,6 @@
-package code.challenges
+package code.hackerrank
 
 import kotlin.test.*
-import java.math.BigInteger
 
 class ExtraLongFactorialsTest {
     @Test fun sample() {

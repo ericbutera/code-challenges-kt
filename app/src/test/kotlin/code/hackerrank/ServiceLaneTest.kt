@@ -1,4 +1,4 @@
-package code.challenges
+package code.hackerrank
 
 import kotlin.test.*
 

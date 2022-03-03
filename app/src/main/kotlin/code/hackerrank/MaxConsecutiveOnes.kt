@@ -1,5 +1,5 @@
 // https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3238/
-package code.challenges
+package code.hackerrank
 
 const val MAX_CONSECUTIVE_SEARCH = 1
 

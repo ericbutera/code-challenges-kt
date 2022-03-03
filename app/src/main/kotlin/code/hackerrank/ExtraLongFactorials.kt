@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/extra-long-factorials/problem
-package code.challenges
+package code.hackerrank
 
 import java.math.BigInteger
 
