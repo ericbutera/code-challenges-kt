@@ -3,18 +3,22 @@ package code.hackerrank
 
 import kotlin.math.pow
 
-fun kaprekarNumbers(p: Int, q: Int) {
+fun kaprekarNumbers(p: Int, q: Int): String {
     var hasNumbers = false
+    var out = ""
     for (n in (p..q)) {
         if (kaprekarNumber(n)) {
             if (!hasNumbers) hasNumbers = true
 
-            print("$n ")
+            //print("$n ")
+            out += "$n "
         }
     }
 
     if (!hasNumbers)
-        print("INVALID RANGE")
+        out = "INVALID RANGE"
+
+    return out.trimEnd()
 }
 
 fun kaprekarNumber(n: Int): Boolean {

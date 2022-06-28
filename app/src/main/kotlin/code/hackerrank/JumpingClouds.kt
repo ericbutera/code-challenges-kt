@@ -15,11 +15,8 @@ fun jumpingOnClouds(c: Array<Int>, k: Int): Int {
     do {
         i = (i + k) % c.size
 
-        val cloudModifier = if (c[i] == THUNDERHEAD_ENERGY) {
-            2
-        } else {
-            0
-        }
+        val cloudModifier = if (c[i] == THUNDERHEAD_ENERGY) 2 else 0
+
 
         energy -= MOVE_ENERGY + cloudModifier
     } while (i > 0)

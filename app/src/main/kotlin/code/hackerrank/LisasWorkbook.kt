@@ -17,10 +17,8 @@ fun workbook(n: Int, k: Int, arr: Array<Int>): Int {
                 pageIndex += 1
             }
 
-            if (problem == page) {
-                println("problem $problem is special; $problem == $page")
+            if (problem == page)
                 special += 1
-            }
         }
 
         page += 1

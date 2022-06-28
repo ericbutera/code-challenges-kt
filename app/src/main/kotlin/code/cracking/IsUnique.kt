@@ -6,9 +6,9 @@ fun isUnique(text: String): Boolean {
     val used = mutableSetOf<Char>()
 
     for (c in text) {
-        if (used.contains(c)) {
+
+        if (used.contains(c))
             return false
-        }
 
         used.add(c)
     }

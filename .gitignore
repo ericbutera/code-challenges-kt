@@ -7,6 +7,7 @@ build
 # https://github.com/JetBrains/kotlin/blob/master/.gitignore
 .DS_Store
 .idea/shelf
+.idea/inspectionProfiles
 /confluence/target
 /dependencies/repo
 /android.tests.dependencies

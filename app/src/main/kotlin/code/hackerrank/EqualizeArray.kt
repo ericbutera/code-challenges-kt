@@ -22,10 +22,12 @@ fun equalizeArray(arr: Array<Int>): Int {
     // add maxUsed so that only the first "max" count entry skips. the rest are summed
     var removeCount = 0
     var maxUsed = false
+
     for ((_, count) in counts) {
+
         if (!maxUsed && count == max) {
             maxUsed = true
-            continue;
+            continue
         }
 
         removeCount += count
